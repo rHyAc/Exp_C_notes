@@ -13,7 +13,7 @@
 
 ---
 
-###　String Concatenation
+### String Concatenation
 
 ```c
     printf("The book"
