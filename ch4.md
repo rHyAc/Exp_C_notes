@@ -17,7 +17,7 @@
 >
 > Actually, the declaration/definition of an array gives you an array, the declaration/definition of a pointer gives you a pointer (except the declaration of a function parameter). Hence the declaration in file 2 doesn't match the definition in file 1.
 
->   **`char * p = "ro_str";`** **`char q[] = "r_str";`** -- "ro_str" is read-only(put in ro-data segment by gcc), but "r_str" is writable.
+>   **`char * p = "ro_str";`** **`char q[] = "r_str";`** -- "ro_str" is read-only(put in ro-data segment by gcc), but "r_str" is writable. But both **`printf(p);`** and **`printf(q);`** are valid.
 
 ***Equivalece***
 
