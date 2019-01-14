@@ -35,27 +35,27 @@
     struct st
     {
         int a       : 1;          
-        /* 
-            * ": 1" -- one bit length, bit field.  A bit field must have a type 
-        of int, unsigned int, or signed int (or a qualified version of one of 
-        these). It's implementation-dependent whether bit fields that are 
-        int's can be negative. 
-            * C99 guarentees that bit-fields will be packed as tightly as 
-        possible, provided they don’t cross storage unit boundaries. But in C11
-        a bit-field can span multiple allocation units instead of starting a
-        new one. It’s up to the implementation to decide and gcc prevent them 
-        from sharing an allocation unit for x64.
-            * C standard does not specify that bits are allocated low-to-high.
+        /* ": 1" -- one bit length, bit field.  A bit field must have a type of 
+           int, unsigned int, or signed int (or a qualified version of one of 
+           these). It's implementation-dependent whether bit fields that are 
+           int's can be negative. 
+         * C99 guarentees that bit-fields will be packed as tightly as 
+           possible, provided they don’t cross storage unit boundaries. But in 
+           C11 a bit-field can span multiple allocation units instead of 
+           starting a new one. It’s up to the implementation to decide and gcc 
+           prevent them from sharing an allocation unit for x64.
+         * C standard does not specify that bits are allocated low-to-high.
          */
+
         int         : 9;
         unsigned    : 0; 
-        /* 
-            * Unnamed bit fields cannot be referenced or initialized
-            * "int : 9" -- equivalent to pad 9 bit
-            * "unsigned : 0" -- pad to next int boundary, equivalent to pad 
-              (32 - 9 - 1) bit in this case. Note that bit fields with a length 
-              of 0 must be unnamed. 
-        */
+        /* Unnamed bit fields cannot be referenced or initialized
+         * "int : 9" -- equivalent to pad 9 bit
+         * "unsigned : 0" -- pad to next int boundary, equivalent to pad 
+           (32 - 9 - 1) bit in this case. Note that bit fields with a length of 
+           0 must be unnamed. 
+         */
+
         int b;
     }; 
 ``` 

@@ -3,7 +3,7 @@
 
 ***difference***
 
-> file 1: **`int mango[100];`**, file 2: **`extern int * mango;`** -- wrong. Array and pointer are not interchangeable in this case. The difference between them will be clear by disassembling the code below:
+> file 1: **`int mango[100];`**, file 2: **`extern int * mango;`** -- wrong, though compiler will not complain about it(ch8 #Prototype mentioned more about this issue). Array and pointer are not interchangeable in this case. The difference between them will be clear by disassembling the code below:
 > 
 > (To a compiler, an array indicates the address of a memory block that contain the value of **`array_name[0]`**, and a pointer indicates the address of a memory block that contain an address)
 > 
@@ -17,7 +17,7 @@
 >
 > Actually, the declaration/definition of an array gives you an array, the declaration/definition of a pointer gives you a pointer (except the declaration of a function parameter). Hence the declaration in file 2 doesn't match the definition in file 1.
 
->   **`char * p = "ro_str";`** **`char q[] = "r_str";`** -- "ro_str" is read-only(put in ro-data segment by gcc), but "r_str" is writable. But both **`printf(p);`** and **`printf(q);`** are valid.
+>   **`char * p = "ro_str";`** **`char q[] = "r_str";`** -- "ro_str" is read-only(put in ro-data segment by gcc), but "r_str" is writable. After definition, **`p = "other_str"`** is valid while **`q = "other_str"`** is invalid. 
 
 ***Equivalece***
 
@@ -27,6 +27,9 @@
 
 > **NOTICE:** Don't confused by **`6[a]`** where **`a`** is an array. It is equivalent to **`a[6]`** which is familiar.
 
+>> By the Way
+>> * Arithmetic on a pointer to `void` should be avoided, and applying `sizeof` to `void` type is invalid. (But valid in GNU C, 1 byte)
+>> * Both `pointer_a + pointer_b` and `(type)pointer_a - (dif_type)pointer_b` are invalid.
 ---
 
 ### Multidimensional Arrays
