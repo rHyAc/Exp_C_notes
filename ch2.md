@@ -59,7 +59,7 @@
 
 [1]:  the value of a comma operator is the value of the rightmost operand, `i = (1, 2)` is equivalent to `i = 2`.
 
->> **NOTICE:**  The order of precedence and association are well-defined. However, the order of expression evaluation is mostly unspecified. We say "mostly" because the order is defined for **`&&`**, **`||`**, **`? :`** and **`,`**(commas that separate function arguments are not comma operators). **`&&`** and **`||`** evaluate their operands in a **strict left-to-right** order, **stopping when the result is known**. However, the order of evaluation of the arguments in a function call is another unspecified order.
+>> **NOTICE:**  The order of precedence and association are well-defined. However, the order of expression evaluation is mostly unspecified. We say "mostly" because the order is defined for **`&&`**, **`||`**, **`? :`** and **`,`**(commas that separate function arguments are not comma operators). **`&&`** and **`||`** evaluate their operands in a **strict left-to-right** order, **stopping when the result is known**. The **`?:`** operator takes three operands: **`a ? b : c`** evaluates **`a`** first, and then evaluates either **`b`** or **`c`**, depending on the value of **`a`**. The **`,`** operator evaluates its left pperand and discards its value, then evaluates its right operand. However, the order of evaluation of the arguments in a function call is another unspecified order.
 
 ---
 
