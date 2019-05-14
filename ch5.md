@@ -1,5 +1,5 @@
 
-PIC(Postition Independent Code) ???
+PIC(Postition Independent Code) —— GOT, PLT
 
 Interpositioning ???    not allowed in gcc ???
 
