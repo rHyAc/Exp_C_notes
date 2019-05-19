@@ -21,9 +21,9 @@
  * In the frame-pointers case rbp is fixed to the stack frame.
  * for struct return values wider than 64 bits the return convention is a bit more complex: up to 128 bits width we return small structures straight in rax, rdx. For structures larger than that (3 words or larger) the caller puts a pointer to an on-stack return struct [allocated in the caller's stack frame] into the first argument - i.e. into rdi. All other arguments shift up by one in this case. Fortunately this case is rare in the kernel.
   
-  [1] **Callee-saved registers** (AKA(also known as) non-volatile registers) are used to hold long-lived values that should be preserved across calls.
-  [2] **Caller-saved registers** (AKA(also known as) volatile registers) are used to hold temporary quantities that need not be preserved across calls.
-  [3] Callee's (%rbp) contains the value of caller's rbp, while 0x8(%rbp) contains return addr.
+  [1] **Callee-saved registers** [AKA(also known as) non-volatile registers] are used to hold long-lived values that should be preserved across calls.
+  [2] **Caller-saved registers** [AKA(also known as) volatile registers] are used to hold temporary quantities that need not be preserved across calls.
+  [3] With x86-64 code, it is used only in cases where the stack frame may be of variable size. When it's used, callee's (%rbp) contains the value of caller's rbp, while 0x8(%rbp) contains return addr.
 
 ---
 
