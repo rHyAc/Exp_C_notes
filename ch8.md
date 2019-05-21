@@ -27,7 +27,6 @@ Compile two files in gcc(or clang).
   
 * In this case, when the argument is passed to the parameter: 
   `short` $\xrightarrow{converse}$ `char`(declaration) $\xrightarrow{promote}$ register/stack $\xrightarrow{retrieve\ Qword}$ `long`(definition)
-  Watch out! Something unexpected may happen when retrieving Qword.
 
 *  A function definition with parameters type that has a default promotion including `float`(double promotion only here), `char` and `short` in general can’t match the function declaration with an empty parameter name. Call passes promoted types when calling a function with an empty parameter name declaration.
   
