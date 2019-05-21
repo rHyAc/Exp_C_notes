@@ -8,7 +8,7 @@
 - [x] a function returning a pointer to an array, **`(* foo())[]`**
 - [x] an array holding pointers to functions, **`(* foo[])()`**
 
-> **NOTICE:** Arguments that don't fit into registers are pushed to  **caller's** stack that can be access by callee **from right to left** when function calls
+> **NOTICE:** Arguments that don't fit into registers are pushed to  **caller's** stack **from right to left** when function calls
 
   x86 function call convention, 64-bit(via linux_src/arch/x86/entry/calling.h):
 
@@ -23,7 +23,7 @@
   
   [1] **Callee-saved registers** [AKA(also known as) non-volatile registers] are used to hold long-lived values that should be preserved across calls.
   [2] **Caller-saved registers** [AKA(also known as) volatile registers] are used to hold temporary quantities that need not be preserved across calls.
-  [3] With x86-64 code, it is used only in cases where the stack frame may be of variable size. When it's used, callee's (%rbp) contains the value of caller's rbp, while 0x8(%rbp) contains return addr.
+  [3] With x86-64 code, it is used only in cases where the stack frame may be of variable size. When it's used, callee's (%rbp) contains the value of caller's rbp, while 0x8(%rbp) contains return addr, followed by the 7th, then 8th, ... args
 
 ---
 
