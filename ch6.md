@@ -19,6 +19,5 @@
 
 * `setjmp(jmp_buf j)` must be called first. It says use the variable `j` to remember where you are now. Return 0 from the call.
 * `longjmp(jmp_buf j,int i)` can then be called. It says go back to the place that the `j` is remembering. Make it look like you're returning from the original `setjmp()`, but return the value of `i` so the code can tell when you actually got back here via `longjmp()`. If `i = 0`, `setjmp()` return 1,else `setjmp()` return `i`. (different between `goto` and `longjmp()`: `goto` can't jump out of the current function in C)
-* The contents of the `j` are destroyed once it is used in a `longjmp()`.
 * `<setjmp.h>` is needed.
 * Usually used in exception handling.
