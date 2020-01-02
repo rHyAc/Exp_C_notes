@@ -16,8 +16,8 @@
 ### String Concatenation
 
 ```c
-    printf("The book"
-            "is"
+    printf("The book "
+            "is "
             "mine.");
 ```
 > **OUTPUT：** *The book is mine.*
