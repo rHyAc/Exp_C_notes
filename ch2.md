@@ -10,7 +10,35 @@
 ### Switch
 
 > * All statements before the **`case`** that matches the expression will not be executed. 
-
+> * A label (including case label) can only be part of a statement and a declaration is not a statement
+>> ```c
+>>     switch(c)
+>>     {
+>>         int j = 0;
+>>         case 0:
+>>             ;
+>>             int i = 0;        // OK
+>>             j = 1;            // OK
+>>             break;
+>>         case 1:
+>>             i = 2;            // OK
+>>     }
+>> ```
+>> **`or`**
+>> ```c
+>>     switch(c)
+>>     {
+>>         int j = 0;
+>>         case 0:
+>>         {
+>>             int i = 0;        // OK
+>>             j = 1;            // OK
+>>             break;
+>>         }
+>>         case 1:
+>>             i = 2;            // OK
+>>     }
+>> ```
 ---
 
 ### String Concatenation
