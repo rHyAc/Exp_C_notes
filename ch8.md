@@ -37,11 +37,11 @@ Compile two files in gcc(or clang).
 > void a(void) {}
 > ...
 > void (* p)(void) = a;
-> void (* p)(void) = &a;     // equivalent to void *(* p)(void) = a;* 
+> void (* p)(void) = &a;     // equivalent to void (* p)(void) = a; 
 > ...
 > p();                      // valid
-> (*P)();                   // equivalent to *p();*
-> (********P)();            // equivalent to *p();*
+> (*P)();                   // equivalent to p();
+> (********P)();            // equivalent to p();
 > *p();                     // error
 > ...
 > ```
