@@ -44,6 +44,9 @@ Compile two files in gcc(or clang).
 > (********P)();            // equivalent to p();
 > *p();                     // error
 > ...
+> /*  the parameter is a function type and is automatically treated as a pointer to function */
+> void fc(int func(void)) {} 
+> ...
 > ```
 
 ---
