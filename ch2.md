@@ -10,33 +10,34 @@
 ### Switch
 
 > * All statements before the **`case`** that matches the expression will not be executed. 
-> * A label (including case label) can only be part of a statement and a declaration is not a statement
+> * A label (including case label) can only be part of a statement 
+> * A declaration is not a statement
 >> ```c
 >>     switch(c)
 >>     {
->>         int j = 0;
+>>         int j = 0;            // OK
 >>         case 0:
 >>             ;
 >>             int i = 0;        // OK
->>             j = 1;            // OK
+>>             j = 1;            // j is declared but not uninitialized
 >>             break;
 >>         case 1:
->>             i = 2;            // OK
+>>             i = 2;            // i is declared but not uninitialized
 >>     }
 >> ```
 >> **`or`**
 >> ```c
 >>     switch(c)
 >>     {
->>         int j = 0;
+>>         int j = 0;            // OK
 >>         case 0:
 >>         {
 >>             int i = 0;        // OK
->>             j = 1;            // OK
+>>             j = 1;            // j is declared but not uninitialized
 >>             break;
 >>         }
 >>         case 1:
->>             i = 2;            // OK
+>>             i = 2;            // i is declared but not uninitialized
 >>     }
 >> ```
 ---
