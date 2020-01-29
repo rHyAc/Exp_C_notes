@@ -35,10 +35,11 @@
     struct st
     {
         int a       : 1;          
-        /* ": 1" -- one bit length, bit field.  A bit field must have a type of 
-           int, unsigned int, or signed int (or a qualified version of one of 
-           these). It's implementation-dependent whether bit fields that are 
-           int's can be negative. 
+        /* ": 1" -- one bit length, bit field.  A bit field must have 
+           a qualified or unqualified version of _Bool, signed int, unsigned int, 
+           or some other implementation-defined type. 
+         * The width of a bit-field shall be an integer constant expression with a
+           nonnegative value that does not exceed the width of an object
          * C99 guarentees that bit-fields will be packed as tightly as 
            possible, provided they don’t cross storage unit boundaries. But in 
            C11 a bit-field can span multiple allocation units instead of 
