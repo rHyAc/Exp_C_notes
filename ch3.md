@@ -48,7 +48,7 @@
 > struct foo quad[4];
 > ```
  
-> **Bitset**
+> **Bitfields**
 > ```c
 >     struct st
 >     {
