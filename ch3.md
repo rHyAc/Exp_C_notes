@@ -156,8 +156,8 @@
 ```c
     enum em
     {
-        o;          // The integer values start at zero by default.
-        t = 2;
+        o,          // The integer values start at zero by default.
+        t = 2
     }
     ...
     enum em emmm = 50;
