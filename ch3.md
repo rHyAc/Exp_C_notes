@@ -31,7 +31,7 @@
 
 > **Alignment:** In general, a struct instance will have the alignment of its widest scalar member. All the members in struct are self-aligned. Thus, reorder the structure members may save memory.
 
-> **Trailing Padding:** the compiler will behave as though the structure has trailing padding, which controls what `sizeof()` will return
+> **Trailing Padding:** the compiler will behave as though the structure has trailing padding, which controls what `sizeof()` will return.
 >
 > ```c
 > /* Giving this example on a 64-bit x86 or ARM machine: */
