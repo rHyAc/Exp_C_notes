@@ -32,7 +32,7 @@ short $\rightarrow$ longest/floatiest with signed if possible
 > * First, if either operand has type long double, the other operand is converted to long double. Otherwise, if either operand has type double, the other operand is converted to double. Otherwise, **if either operand has type float, the other operand is converted to float (NOTICE: no double promotions in arithmetic conversions)**. Otherwise the integral promotions are performed on both operands. Then the following rules are applied.
 > * If either operand has type unsigned long int, the other operand is converted to unsigned long int. Otherwise, if one operand has type long int and the other has type unsigned int, if a long int can represent all values of an unsigned int the operand of type unsigned int is converted to long int; if a long int cannot represent all the values of an unsigned int, both operands are converted to unsigned long int. Otherwise, if either operand has type long int, the other operand is converted to long int. Otherwise, if either operand has type unsigned int, the other operand is converted to unsigned int. Otherwise, both operands have type int.
 
->> **NOTICE:** **`sizeof`** has a **`size_t`** return type(a **`unsigned`** integer type). And sizeof is an **operator** but not a function.
+>> **NOTICE:** **`sizeof`** has a **`size_t`** return type(an **`unsigned`** integer type). And sizeof is an **operator** but not a function.
 >> **Hence:**
 >> * **`int p; sizeof p;`** -- valid;
 >> * But **`sizeof int`** -- invalid, it must be **`sizeof(int)`**
