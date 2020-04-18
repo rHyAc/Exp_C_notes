@@ -47,10 +47,8 @@
 
 > When being parameters
 >
-> **`int arr[2][3]`** $\xrightarrow{decay\ to}$ **`int (* arr)[3]`**
->
-> **`int * arr[5]`** $\xrightarrow{decay\ to}$ **`int ** arr`**
->
+> **`int arr[2][3]`** $\xrightarrow{decay\ to}$ **`int (* arr)[3]`**  
+> **`int * arr[5]`** $\xrightarrow{decay\ to}$ **`int ** arr`**  
 > **`int (* arr)[6]`** doesn't change
 
 > **NOTICE:** You can only assign to an entire array during its definition. For instance, **`int arr[][3] ={ {0,0,0}, {1,1,1}, };`** -- you can only omit the most significant dimension(the same as a function parameter). If the array dimension is bigger than the number of initial values provided, the remaining elements are set to zero.
