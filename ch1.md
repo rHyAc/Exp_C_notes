@@ -21,7 +21,7 @@
 ### Integral Promotions --  Value Preserving 
 
 `(unsigned) char_8, (unsigned) short_16, enum_?` $\rightarrow$ `int_32` 
-> * A char, a short int, or an int bit-field, or their signed or unsigned varieties, or an enumeration type, may be used in an expression wherever an int or unsigned int may be usedIf an int can represent all the values of the original type, the value is converted to an int; otherwise it is converted to an unsigned int. These are called the integral promotions.
+> * A char, a short int, or an int bit-field, or their signed or unsigned varieties, or an enumeration type, may be used in an expression wherever an int or unsigned int may be used. If an int can represent all the values of the original type, the value is converted to an int; otherwise it is converted to an unsigned int. These are called the integral promotions.
 
 ---
 
