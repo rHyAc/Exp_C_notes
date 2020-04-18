@@ -31,52 +31,53 @@
 
 > **Alignment:** In general, a struct instance will have the alignment of its widest scalar member. All the members in struct are self-aligned. Thus, reorder the structure members may save memory.
 
-```c
-    struct st
-    {
-        int a       : 1;          
-        /* ": 1" -- one bit length, bit field.  A bit field must have 
-           a qualified or unqualified version of _Bool, signed int, unsigned int, 
-           or some other implementation-defined type. 
-         * The width of a bit-field shall be an integer constant expression with a
-           nonnegative value that does not exceed the width of an object
-         * C99 guarentees that bit-fields will be packed as tightly as 
-           possible, provided they don’t cross storage unit boundaries. But in 
-           C11 a bit-field can span multiple allocation units instead of 
-           starting a new one. It’s up to the implementation to decide and gcc 
-           prevent them from sharing an allocation unit for x64.
-         * C standard does not specify that bits are allocated low-to-high.
-         */
-
-        int         : 9;
-        unsigned    : 0; 
-        /* Unnamed bit fields cannot be referenced or initialized
-         * "int : 9" -- equivalent to pad 9 bit
-         * "unsigned : 0" -- pad to next int boundary, equivalent to pad 
-           (32 - 9 - 1) bit in this case. Note that bit fields with a length of 
-           0 must be unnamed. 
-         */
-
-        int b;
-    }; 
-``` 
-
 > **Trailing Padding:** the compiler will behave as though the structure has trailing padding, which controls what `sizeof()` will return
-
-```c
-/* Giving this example on a 64-bit x86 or ARM machine: */
-
-struct foo {
-    char *p;     /* 8 bytes */
-    char c;      /* 1 byte */
- };
+>
+> ```c
+> /* Giving this example on a 64-bit x86 or ARM machine: */
+> 
+> struct foo {
+>     char *p;     /* 8 bytes */
+>     char c;      /* 1 byte */
+> };
+> 
+> /* You might think that sizeof(struct foo3) should be 9, but it’s actually 16. */
+> struct foo singleton;
+> 
+> /* In the quad array, each member has 7 bytes of trailing padding */
+> struct foo quad[4];
+> ```
  
- /* You might think that sizeof(struct foo3) should be 9, but it’s actually 16. */
- struct foo singleton;
- 
- /* In the quad array, each member has 7 bytes of trailing padding */
- struct foo quad[4];
-```
+> **Bitset**
+> ```c
+>     struct st
+>     {
+>         int a       : 1;          
+>         /* ": 1" -- one bit length, bit field.  A bit field must have 
+>            a qualified or unqualified version of _Bool, signed int, unsigned int, 
+>            or some other implementation-defined type. 
+>          * The width of a bit-field shall be an integer constant expression with a
+>            nonnegative value that does not exceed the width of an object
+>          * C99 guarentees that bit-fields will be packed as tightly as 
+>            possible, provided they don’t cross storage unit boundaries. But in 
+>            C11 a bit-field can span multiple allocation units instead of 
+>            starting a new one. It’s up to the implementation to decide and gcc 
+>            prevent them from sharing an allocation unit for x64.
+>          * C standard does not specify that bits are allocated low-to-high.
+>          */
+> 
+>         int         : 9;
+>         unsigned    : 0; 
+>         /* Unnamed bit fields cannot be referenced or initialized
+>          * "int : 9" -- equivalent to pad 9 bit
+>          * "unsigned : 0" -- pad to next int boundary, equivalent to pad 
+>            (32 - 9 - 1) bit in this case. Note that bit fields with a length of 
+>            0 must be unnamed. 
+>          */
+> 
+>         int b;
+>     }; 
+> ``` 
 
 `struct s_tag { int a[100]; };` -- The array in struct can be treated as a first-type-class. The entire array will be **copied** with an assignment statement, passed to a function by **value**. 
 
