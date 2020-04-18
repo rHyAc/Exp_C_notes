@@ -61,6 +61,23 @@
     }; 
 ``` 
 
+> **Trailing Padding:** the compiler will behave as though the structure has trailing padding, which controls what `sizeof()` will return
+
+```c
+/* Giving this example on a 64-bit x86 or ARM machine: */
+
+struct foo {
+    char *p;     /* 8 bytes */
+    char c;      /* 1 byte */
+ };
+ 
+ /* You might think that sizeof(struct foo3) should be 9, but it’s actually 16. */
+ struct foo singleton;
+ 
+ /* In the quad array, each member has 7 bytes of trailing padding */
+ struct foo quad[4];
+```
+
 `struct s_tag { int a[100]; };` -- The array in struct can be treated as a first-type-class. The entire array will be **copied** with an assignment statement, passed to a function by **value**. 
 
 >> **By the Way**
