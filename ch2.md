@@ -18,7 +18,7 @@
 >>         int j = 0;            // OK
 >>         case 0:
 >>             ;
->>             int i = 0;        // OK
+>>             int i = 0;        // OK, i equal to 0 in case 0
 >>             j = 1;            // j is declared but not uninitialized
 >>             break;
 >>         case 1:
