@@ -37,7 +37,7 @@
 >>             break;
 >>         }
 >>         case 1:
->>             i = 2;            // i is declared but not uninitialized
+>>             //i = 2;             i is undeclared
 >>     }
 >> ```
 ---
