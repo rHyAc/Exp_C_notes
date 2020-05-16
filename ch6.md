@@ -3,7 +3,7 @@
 
 > * Data segment contains the initialized global and static variables, complete with their assigned values. 
 
-> * BSS(Block Started by Symbol) segment --  The size that BSS will require at runtime is recorded in the object file, but BSS (unlike the data segment) doesn't take up any actual space in the object file. The size of the BSS segment is then obtained from the executable, and the loader obtains ablock of this size, putting it right after the data segment. This block is **zeroed out** as it is put in the program's address space. 
+> * BSS(Block Started by Symbol) segment --  The size that BSS will require at runtime is recorded in the object file, but BSS (unlike the data segment) doesn't take up any actual space in the object file. The size of the BSS segment is then obtained from the executable, and the loader obtains a block of this size, putting it right after the data segment. This block is **zeroed out** as it is put in the program's address space. 
 
 > * Stack segment is allocated for local variables, temporaries, parameter passing in function calls, and the like.
 >> **By the Way**
